@@ -1,0 +1,16 @@
+{
+  "extends": "@nordicsemiconductor/asset-tracker-cloud-code-style/tsconfig.json",
+  "include": ["**/*.ts"],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "outDir": "dist/",
+    "strict": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true
+  }
+}
