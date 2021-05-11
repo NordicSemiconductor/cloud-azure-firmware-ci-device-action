@@ -1,7 +1,7 @@
 name: "Firmware CI Device Runner"
 description:
-  "GitHub action that schedules a firmware run on a real device connected to
-  Azure IoT hub that runs a self-hosted GitHub Actions runner"
+  "GitHub action that runs firmware on a real device connected to Azure IoT hub
+  via a self-hosted GitHub Actions runner"
 inputs:
   device id:
     description: "ID of the device the firmware belongs to (client ID)"
@@ -40,6 +40,10 @@ inputs:
     description:
       "End criteria for the Firmware CI runner, will be split by newlines."
     required: false
+  end on waitSeconds:
+    description: "Number of seconds to wait after end criterion was seen"
+    required: false
+    default: "60"
   target:
     description: "Target board to use"
     default: "nrf9160dk_nrf9160ns"
@@ -60,9 +64,33 @@ inputs:
     description: "Location where to read and write certificates"
     default: "./certficates"
     required: false
+  powerCycle enabled:
+    description: "Whether to power cycle the device"
+    default: "true"
+    required: false
+  powerCycle offCmd:
+    description: "Command to run for turning the device off"
+    default: "sudo ykushcmd -d 1"
+    required: false
+  powerCycle onCmd:
+    description: "Command to run for turning the device on"
+    default: "sudo ykushcmd -u 1"
+    required: false
+  powerCycle waitSecondsAfterOff:
+    description: "Number of seconds to wait after powering the device off"
+    default: "15"
+    required: false
+  powerCycle waitSecondsAfterOn:
+    description: "Number of seconds to wait after powering the device on"
+    default: "15"
+    required: false
 outputs:
   connected:
     description: "Whether the device connected."
+  timeout:
+    description: "Whether the run timed out."
+  abort:
+    description: "Whether the run was aborted."
 
 runs:
   using: "node12"
