@@ -509,9 +509,9 @@ const abortOn = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('abort o
 const end = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('end on');
 const testEnv = {
     credentials: getRequiredInput('azure credentials'),
-    location: getRequiredInput(' azure location'),
+    location: getRequiredInput('azure location'),
     resourceGroup: getRequiredInput('azure resource group'),
-    appName: getRequiredInput('app name:'),
+    appName: getRequiredInput('app name'),
 };
 const main = async () => {
     console.log('deviceId', deviceId);

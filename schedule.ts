@@ -19,9 +19,9 @@ const end = getInput('end on')
 
 const testEnv = {
 	credentials: getRequiredInput('azure credentials'),
-	location: getRequiredInput(' azure location'),
+	location: getRequiredInput('azure location'),
 	resourceGroup: getRequiredInput('azure resource group'),
-	appName: getRequiredInput('app name:'),
+	appName: getRequiredInput('app name'),
 }
 
 const main = async () => {
