@@ -56,6 +56,10 @@ inputs:
     description: "Timeout for job completion in minutes"
     default: "10"
     required: false
+  certificate location:
+    description: "Location where to read and write certificates"
+    default: "./certficates"
+    required: false
 outputs:
   connected:
     description: "Whether the device connected."
