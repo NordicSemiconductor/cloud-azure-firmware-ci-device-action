@@ -95,10 +95,6 @@ inputs:
 outputs:
   connected:
     description: "Whether the device connected."
-  timeout:
-    description: "Whether the run timed out."
-  abort:
-    description: "Whether the run was aborted."
 
 runs:
   using: "node12"
