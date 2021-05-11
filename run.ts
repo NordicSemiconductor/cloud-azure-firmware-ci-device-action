@@ -97,3 +97,4 @@ p.on('close', (code) => {
 	process.exit(code === null ? -109 : code)
 })
 p.stdin.write(JSON.stringify(job))
+p.stdin.end()
