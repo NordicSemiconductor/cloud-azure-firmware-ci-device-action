@@ -7165,6 +7165,8 @@ const abortOn = multilineOrUndefined((0,_actions_core__WEBPACK_IMPORTED_MODULE_0
 const endOn = multilineOrUndefined((0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('end on'));
 const endOnWaitSeconds = parseInt((0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('end on waitSeconds'), 10);
 const certDir = getRequiredInput('certificate location');
+const flashLogOutput = getRequiredInput('flashLog output');
+const deviceLogOutput = getRequiredInput('deviceLog output');
 const testEnv = {
     credentials: getRequiredInput('azure credentials'),
     location: getRequiredInput('azure location'),
@@ -7195,6 +7197,8 @@ const main = async () => {
     (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.debug)(deviceId, 'testEnv', testEnv);
     (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.debug)(deviceId, certDir);
     (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.debug)(deviceId, powerCycle);
+    (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.debug)(deviceId, 'flashLogOutput', flashLogOutput);
+    (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.debug)(deviceId, 'deviceLogOutput', deviceLogOutput);
     if (powerCycle.enabled) {
         (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.progress)(deviceId, `Power cycling device`);
         (0,_nordicsemiconductor_firmware_ci_device_helpers__WEBPACK_IMPORTED_MODULE_1__.progress)(deviceId, `Turning off ...`);
@@ -7299,8 +7303,8 @@ const main = async () => {
     (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)('abort', outputs.abort);
     (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)('timeout', outputs.timeout);
     await Promise.all([
-        fs__WEBPACK_IMPORTED_MODULE_2__.promises.writeFile('device.log', outputs.deviceLog.join('\n'), 'utf-8'),
-        fs__WEBPACK_IMPORTED_MODULE_2__.promises.writeFile('flash.log', outputs.flashLog.join('\n'), 'utf-8'),
+        fs__WEBPACK_IMPORTED_MODULE_2__.promises.writeFile(deviceLogOutput, outputs.deviceLog.join('\n'), 'utf-8'),
+        fs__WEBPACK_IMPORTED_MODULE_2__.promises.writeFile(flashLogOutput, outputs.flashLog.join('\n'), 'utf-8'),
     ]);
 };
 void main();

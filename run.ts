@@ -35,6 +35,8 @@ const endOn = multilineOrUndefined(getInput('end on'))
 const endOnWaitSeconds = parseInt(getInput('end on waitSeconds'), 10)
 
 const certDir = getRequiredInput('certificate location')
+const flashLogOutput = getRequiredInput('flashLog output')
+const deviceLogOutput = getRequiredInput('deviceLog output')
 
 const testEnv = {
 	credentials: getRequiredInput('azure credentials'),
@@ -76,6 +78,8 @@ const main = async () => {
 	debug(deviceId, 'testEnv', testEnv)
 	debug(deviceId, certDir)
 	debug(deviceId, powerCycle)
+	debug(deviceId, 'flashLogOutput', flashLogOutput)
+	debug(deviceId, 'deviceLogOutput', deviceLogOutput)
 
 	if (powerCycle.enabled) {
 		progress(deviceId, `Power cycling device`)
@@ -210,8 +214,8 @@ const main = async () => {
 	setOutput('abort', outputs.abort)
 	setOutput('timeout', outputs.timeout)
 	await Promise.all([
-		fs.writeFile('device.log', outputs.deviceLog.join('\n'), 'utf-8'),
-		fs.writeFile('flash.log', outputs.flashLog.join('\n'), 'utf-8'),
+		fs.writeFile(deviceLogOutput, outputs.deviceLog.join('\n'), 'utf-8'),
+		fs.writeFile(flashLogOutput, outputs.flashLog.join('\n'), 'utf-8'),
 	])
 }
 

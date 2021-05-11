@@ -84,6 +84,14 @@ inputs:
     description: "Number of seconds to wait after powering the device on"
     default: "15"
     required: false
+  flashLog output:
+    description: "Output location of the flash log"
+    default: "flash.log"
+    required: false
+  deviceLog output:
+    description: "Output location of the device log"
+    default: "device.log"
+    required: false
 outputs:
   connected:
     description: "Whether the device connected."
