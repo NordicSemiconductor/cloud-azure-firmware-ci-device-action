@@ -92,6 +92,10 @@ inputs:
     description: "Output location of the device log"
     default: "device.log"
     required: false
+  job output:
+    description: "Output location of the job file"
+    default: "job.json"
+    required: false
 outputs:
   connected:
     description: "Whether the device connected."

@@ -1,5 +1,6 @@
 import { getInput, setOutput } from '@actions/core'
 import { spawn } from 'child_process'
+import * as fs from 'fs'
 
 const getRequiredInput = (input: string): string =>
 	getInput(input, { required: true }).trim()
@@ -24,6 +25,7 @@ const endOnWaitSeconds = parseInt(getInput('end on waitSeconds'), 10)
 const certDir = getRequiredInput('certificate location')
 const flashLogLocation = getRequiredInput('flashLog output')
 const deviceLogLocation = getRequiredInput('deviceLog output')
+const jobLocation = getRequiredInput('job output')
 
 const testEnv = {
 	credentials: getRequiredInput('azure credentials'),
@@ -66,6 +68,7 @@ const job = {
 }
 
 console.log(JSON.stringify(job, null, 2))
+fs.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8')
 
 const p = spawn('npm', [
 	'exec',
