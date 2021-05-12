@@ -470,7 +470,10 @@ __nccwpck_require__.r(__webpack_exports__);
 var core = __nccwpck_require__(186);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = require("child_process");;
+// EXTERNAL MODULE: external "fs"
+var external_fs_ = __nccwpck_require__(747);
 ;// CONCATENATED MODULE: ./run.ts
+
 
 
 const getRequiredInput = (input) => (0,core.getInput)(input, { required: true }).trim();
@@ -489,6 +492,7 @@ const endOnWaitSeconds = parseInt((0,core.getInput)('end on waitSeconds'), 10);
 const certDir = getRequiredInput('certificate location');
 const flashLogLocation = getRequiredInput('flashLog output');
 const deviceLogLocation = getRequiredInput('deviceLog output');
+const jobLocation = getRequiredInput('job output');
 const testEnv = {
     credentials: getRequiredInput('azure credentials'),
     location: getRequiredInput('azure location'),
@@ -521,6 +525,7 @@ const job = {
     deviceLogLocation,
 };
 console.log(JSON.stringify(job, null, 2));
+external_fs_.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8');
 const p = (0,external_child_process_namespaceObject.spawn)('npm', [
     'exec',
     '--',
