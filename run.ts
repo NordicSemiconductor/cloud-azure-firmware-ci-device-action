@@ -34,19 +34,28 @@ const testEnv = {
 	appName: getRequiredInput('app name'),
 }
 
-const powerCycle = {
-	enabled: getRequiredInput('powerCycle enabled') === 'true',
-	offCmd: getRequiredInput('powerCycle offCmd'),
-	onCmd: getRequiredInput('powerCycle onCmd'),
-	waitSecondsAfterOff: parseInt(
-		getRequiredInput('powerCycle waitSecondsAfterOff'),
-		10,
-	),
-	waitSecondsAfterOn: parseInt(
-		getRequiredInput('powerCycle waitSecondsAfterOn'),
-		10,
-	),
-}
+const powerCycle:
+	| {
+			offCmd: string
+			onCmd: string
+			waitSecondsAfterOff: number
+			waitSecondsAfterOn: number
+	  }
+	| undefined =
+	getRequiredInput('powerCycle enabled') === 'true'
+		? {
+				offCmd: getRequiredInput('powerCycle offCmd'),
+				onCmd: getRequiredInput('powerCycle onCmd'),
+				waitSecondsAfterOff: parseInt(
+					getRequiredInput('powerCycle waitSecondsAfterOff'),
+					10,
+				),
+				waitSecondsAfterOn: parseInt(
+					getRequiredInput('powerCycle waitSecondsAfterOn'),
+					10,
+				),
+		  }
+		: undefined
 
 const job = {
 	deviceId,
