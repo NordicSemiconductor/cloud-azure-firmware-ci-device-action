@@ -96,9 +96,18 @@ inputs:
     description: "Output location of the job file"
     default: "job.json"
     required: false
+  tries:
+    description: "How often to retry in case of failure"
+    default: "3"
+    required: false
+
 outputs:
   connected:
     description: "Whether the device connected."
+  timeout:
+    description: "Whether the job timed out."
+  try:
+    description: "Number of the try when stopping the job."
 
 runs:
   using: "node12"
