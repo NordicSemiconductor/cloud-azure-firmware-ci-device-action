@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "9.2.5",
-    "@types/node": "15.0.2",
+    "@types/node": "16.11.6",
     "@types/node-fetch": "3.0.2",
     "@types/uuid": "8.3.1",
     "@vercel/ncc": "0.31.1"
@@ -47,7 +47,7 @@
     ]
   },
   "engines": {
-    "node": "14",
+    "node": "16",
     "npm": "8"
   },
   "release": {
