@@ -31,6 +31,7 @@ const testEnv = {
 	location: getRequiredInput('azure location'),
 	resourceGroup: getRequiredInput('azure resource group'),
 	appName: getRequiredInput('app name'),
+	storageAccountName: getRequiredInput('storage account name'),
 }
 
 let tries = parseInt(getRequiredInput('tries'), 10)

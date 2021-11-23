@@ -24,6 +24,9 @@ inputs:
   app name:
     description: "App name of the nRF Asset Tracker instance"
     required: true
+  storage account name:
+    description: "Name of the storage account"
+    required: true
   hex file:
     description: "The location of the firmware to flash"
     required: false
