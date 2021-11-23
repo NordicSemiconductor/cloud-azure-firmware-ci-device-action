@@ -48,10 +48,6 @@ inputs:
     description: "Target board to use"
     default: "nrf9160dk_nrf9160ns"
     required: false
-  network:
-    description: "Network to use"
-    default: "ltem"
-    required: false
   sec tag:
     description: "SecTag to use for credentials"
     default: "11"

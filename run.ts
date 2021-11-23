@@ -9,7 +9,6 @@ const deviceId = getRequiredInput('device id')
 const appVersion = getRequiredInput('app version')
 
 const target = getRequiredInput('target')
-const network = getRequiredInput('network')
 const secTag = parseInt(getRequiredInput('sec tag'), 10)
 const timeoutInMinutes = parseInt(getRequiredInput('timeout in minutes'), 10)
 
@@ -74,7 +73,6 @@ const job = {
 	secTag,
 	certDir,
 	target,
-	network,
 	powerCycle,
 	flashLogLocation,
 	deviceLogLocation,
