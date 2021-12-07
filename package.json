@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "9.2.30",
-    "@types/node": "16.11.11",
+    "@types/node": "16.11.12",
     "@types/node-fetch": "3.0.2",
     "@types/uuid": "8.3.3",
     "@vercel/ncc": "0.33.0"
