@@ -29,7 +29,7 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.37",
+    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.38",
     "@types/node": "16.11.26",
     "@types/node-fetch": "3.0.2",
     "@types/uuid": "8.3.4",
