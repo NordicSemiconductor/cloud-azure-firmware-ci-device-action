@@ -33,7 +33,7 @@
     "@types/node": "16.11.36",
     "@types/node-fetch": "3.0.2",
     "@types/uuid": "8.3.4",
-    "@vercel/ncc": "0.33.4"
+    "@vercel/ncc": "0.34.0"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [
