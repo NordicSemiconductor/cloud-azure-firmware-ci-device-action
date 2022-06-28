@@ -8,7 +8,8 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier/)
 [![ESLint: TypeScript](https://img.shields.io/badge/ESLint-TypeScript-blue.svg)](https://github.com/typescript-eslint/typescript-eslint)
 
-GitHub action that runs firmware on a real device connected to Azure IoT hub via a self-hosted GitHub Actions runner.
+GitHub action that runs firmware on a real device connected to Azure IoT hub via
+a self-hosted GitHub Actions runner.
 
 > :information_source:
 > [Read the complete nRF Asset Tracker documentation](https://nordicsemiconductor.github.io/asset-tracker-cloud-docs/).
