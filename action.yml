@@ -10,17 +10,6 @@ inputs:
     description:
       "The version string to use for the app. This is used with the FOTA test."
     required: true
-  azure credentials:
-    description: "Azure credentials as JSON string"
-    required: true
-  azure location:
-    description:
-      "Location (region) of the nRF Asset Tracker instance the device connects
-      to"
-    required: true
-  azure resource group:
-    description: "Resource group of of the nRF Asset Tracker instance"
-    required: true
   app name:
     description: "App name of the nRF Asset Tracker instance"
     required: true

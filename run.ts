@@ -27,9 +27,6 @@ const deviceLogLocation = getRequiredInput('deviceLog output')
 const jobLocation = getRequiredInput('job output')
 
 const testEnv = {
-	credentials: getRequiredInput('azure credentials'),
-	location: getRequiredInput('azure location'),
-	resourceGroup: getRequiredInput('azure resource group'),
 	appName: getRequiredInput('app name'),
 	storageAccountName: getRequiredInput('storage account name'),
 }
@@ -88,7 +85,7 @@ const run = async () => {
 	const p = spawn('npm', [
 		'exec',
 		'--',
-		'@nordicsemiconductor/firmware-ci-runner-azure',
+		'@nordicsemiconductor/firmware-ci-runner-azure@oidc',
 	])
 	let timedOut = false
 	const t = setTimeout(() => {
