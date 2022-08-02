@@ -82,11 +82,13 @@ fs.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8')
 const run = async () => {
 	tries--
 	numTry++
-	const p = spawn('npm', [
-		'exec',
-		'--',
-		'@nordicsemiconductor/firmware-ci-runner-azure@oidc',
-	])
+	const p = spawn(
+		'npm',
+		['exec', '--', '@nordicsemiconductor/firmware-ci-runner-azure@oidc'],
+		{
+			shell: true,
+		},
+	)
 	let timedOut = false
 	const t = setTimeout(() => {
 		p.kill('SIGHUP')
