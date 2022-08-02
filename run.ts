@@ -79,12 +79,20 @@ const job = {
 console.log(JSON.stringify(job, null, 2))
 fs.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8')
 
+const ciRunnerPackage = getInput('ci runner package').trim()
+
 const run = async () => {
 	tries--
 	numTry++
 	const p = spawn(
 		'npm',
-		['exec', '--', '@nordicsemiconductor/firmware-ci-runner-azure@oidc'],
+		[
+			'exec',
+			'--',
+			ciRunnerPackage.length > 0
+				? ciRunnerPackage
+				: '@nordicsemiconductor/firmware-ci-runner-azure',
+		],
 		{
 			shell: true,
 		},

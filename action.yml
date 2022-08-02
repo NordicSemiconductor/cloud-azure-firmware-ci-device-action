@@ -88,6 +88,10 @@ inputs:
     description: "How often to retry in case of failure"
     default: "3"
     required: false
+  ci runner package:
+    description: "The CI runner package to use"
+    default: "@nordicsemiconductor/firmware-ci-runner-azure"
+    required: false
 
 outputs:
   connected:
