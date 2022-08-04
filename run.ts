@@ -27,9 +27,6 @@ const deviceLogLocation = getRequiredInput('deviceLog output')
 const jobLocation = getRequiredInput('job output')
 
 const testEnv = {
-	credentials: getRequiredInput('azure credentials'),
-	location: getRequiredInput('azure location'),
-	resourceGroup: getRequiredInput('azure resource group'),
 	appName: getRequiredInput('app name'),
 	storageAccountName: getRequiredInput('storage account name'),
 }
@@ -82,14 +79,24 @@ const job = {
 console.log(JSON.stringify(job, null, 2))
 fs.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8')
 
+const ciRunnerPackage = getInput('ci runner package').trim()
+
 const run = async () => {
 	tries--
 	numTry++
-	const p = spawn('npm', [
-		'exec',
-		'--',
-		'@nordicsemiconductor/firmware-ci-runner-azure',
-	])
+	const p = spawn(
+		'npm',
+		[
+			'exec',
+			'--',
+			ciRunnerPackage.length > 0
+				? ciRunnerPackage
+				: '@nordicsemiconductor/firmware-ci-runner-azure',
+		],
+		{
+			shell: true,
+		},
+	)
 	let timedOut = false
 	const t = setTimeout(() => {
 		p.kill('SIGHUP')
