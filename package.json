@@ -21,7 +21,7 @@
   "author": "Nordic Semiconductor ASA | nordicsemi.no",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@actions/core": "1.9.1",
+    "@actions/core": "1.10.0",
     "chalk": "5.0.1",
     "node-fetch": "3.2.10",
     "uuid": "9.0.0"
