@@ -102,5 +102,5 @@ outputs:
     description: "Number of the try when stopping the job."
 
 runs:
-  using: "node12"
+  using: "node16"
   main: "build/index.js"
