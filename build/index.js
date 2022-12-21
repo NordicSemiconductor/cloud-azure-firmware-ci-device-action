@@ -2882,6 +2882,7 @@ const job = {
 };
 console.log(JSON.stringify(job, null, 2));
 fs.writeFileSync(jobLocation, JSON.stringify(job, null, 2), 'utf-8');
+console.log(`Job document written to`, jobLocation);
 const ciRunnerPackage = (0, core_1.getInput)('ci runner package').trim();
 const run = async () => {
     tries--;
@@ -2900,15 +2901,11 @@ const run = async () => {
         p.kill('SIGHUP');
         timedOut = true;
     }, timeoutInMinutes * 60 * 1000);
-    const data = [];
     p.stdout.on('data', (d) => {
         console.log(d.toString());
-        data.push(d.toString());
     });
-    const error = [];
     p.stderr.on('data', (d) => {
         console.error(d.toString());
-        error.push(d.toString());
     });
     p.on('close', (code) => {
         clearTimeout(t);
