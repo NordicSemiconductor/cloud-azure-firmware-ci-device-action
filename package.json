@@ -26,7 +26,7 @@
     "node-fetch": "3.3.0"
   },
   "devDependencies": {
-    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.164",
+    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.165",
     "@types/node": "18.11.18",
     "@types/node-fetch": "3.0.2",
     "@vercel/ncc": "0.36.0"
