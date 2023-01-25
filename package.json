@@ -29,7 +29,7 @@
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.172",
     "@types/node": "18.11.18",
     "@types/node-fetch": "3.0.2",
-    "@vercel/ncc": "0.36.0"
+    "@vercel/ncc": "0.36.1"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [
