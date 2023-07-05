@@ -99,10 +99,13 @@ const run = async () => {
 		},
 	)
 	let timedOut = false
-	const t = setTimeout(() => {
-		p.kill('SIGHUP')
-		timedOut = true
-	}, timeoutInMinutes * 60 * 1000)
+	const t = setTimeout(
+		() => {
+			p.kill('SIGHUP')
+			timedOut = true
+		},
+		timeoutInMinutes * 60 * 1000,
+	)
 	p.stdout.on('data', (d) => {
 		console.log(d.toString())
 	})
